@@ -1,0 +1,437 @@
+% Generates list of publications, based on: https://www.andrewgclark.info/posts/2020-06-24_multiple_bibliographies_latex/
+
+\documentclass{article}
+\usepackage[a4paper, total={6in, 9in}]{geometry}
+\usepackage{url}
+\usepackage{bibentry}
+\usepackage[square,sort,comma,numbers]{natbib}
+\usepackage{datetime}
+\usepackage{enumitem}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx} % Times font
+
+% hyperlinks, based on: https://tex.stackexchange.com/questions/247104/hyperref-doesnt-link-cite-command
+\usepackage[colorlinks,bookmarksopen,bookmarksnumbered,citecolor=black,urlcolor=blue,linkcolor=blue]{hyperref}
+
+% allow shading of headings, based on: https://tex.stackexchange.com/questions/390029/how-can-i-just-place-a-background-colour-throughout-an-entire-line-with-text
+\usepackage[most]{tcolorbox}
+
+\newcommand{\formattedtitle}[1]{
+    \begin{tcolorbox}[colback=gray!20,enhanced,sharp corners,frame hidden,halign=center]
+    \LARGE{#1}
+    \end{tcolorbox}
+    \hspace{0.5cm}
+}
+\newcommand{\formattedsection}[1]{
+    \begin{tcolorbox}[colback=gray!20,enhanced,sharp corners,frame hidden,halign=justify]
+    \section*{#1}
+    \end{tcolorbox}
+}
+
+% insert header
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % Clear header and footer fields
+% Pages 2 and onwards will have the desired header without page numbers
+\fancypagestyle{otherpagestyle}{
+  \fancyhead[L]{Peter Charlton - Publication List}
+  \fancyhead[R]{\thepage}
+}
+\fancypagestyle{firstpagestyle}{
+%  \fancyhead[L]{Peter Charlton - Publication List}
+  \fancyhead[R]{\thepage}
+}
+
+% change last year of printed publications
+\newcommand{\lastyear}{2010} % 2010
+
+% Top matter
+
+\begin{document}
+
+%\maketitle
+\ifdim \lastyear pt > 2012 pt
+	\formattedtitle{\textbf{Peter Charlton} \\ Publication List (\lastyear~onwards)}
+\else
+	\formattedtitle{\textbf{Peter Charlton} \\ Publication List}
+\fi
+
+% set up bibliography
+\bibliographystyle{abbrvnatpc}
+\nobibliography{pete_pubs}
+
+% Journal Articles
+
+
+% insert header for page 1
+\pagestyle{firstpagestyle}
+
+\formattedsection{Journal Articles}
+
+% Preprints
+\subsection*{\textit{Preprints (currently under review)}}
+  \begin{enumerate}[label=\roman*.]
+    \item \bibentry{bhayankaram_telephone_2024}
+    \item \bibentry{charlton_determinants_2024}
+    \item \bibentry{charlton_msptdfast2_2024}
+\end{enumerate}
+
+%\subsection*{\textit{Preprints (accepted)}}
+%  \begin{enumerate}[label=\roman*.]
+%    \item \bibentry{kristoff_qrs_2024}
+%\end{enumerate}
+
+% Accepted manuscripts
+\subsection*{\textit{Articles in press}}
+  \begin{enumerate}[label=\roman*.]
+    \item \bibentry{zanelli_developing_2024} % mid 2024
+\end{enumerate}
+
+  \ifdim \lastyear pt < 2025 pt
+  \subsection*{\textit{2024}}
+  \begin{enumerate}
+    \item \bibentry{sen_machine_2024} % oct 2024
+    \item \bibentry{rinkevicius_obstructive_2024} % oct 2024
+    \item \bibentry{kristoff_qrs_2024} % aug 2024
+    \item \bibentry{hibbitt_reliability_2024} % mid 2024
+    \item \bibentry{yang_ppg_2024} % mid 2024
+    \item \bibentry{mant_feasibility_2024} % mid 2024
+    \item \bibentry{goda_pyppg_2024} % early 2024
+    \item \bibentry{mathieu_advanced_2023} % early 2024
+    \item \bibentry{pettit_photoplethysmogram_2023} % in press
+    \item \bibentry{bianchini_unified_2023} % in press
+\end{enumerate}
+\fi
+
+\ifdim \lastyear pt < 2024 pt
+  \subsection*{\textit{2023}}
+  \begin{enumerate}[resume]
+    \item \bibentry{hong_invasive_2023} % end 2023
+    \item \bibentry{zanelli_clustered_2023} % end 2023
+\end{enumerate}
+\fi
+
+\ifdim \lastyear pt < 2023.5 pt
+  \begin{enumerate}[resume]
+    \item \bibentry{charlton_2023_2023} % Aug 2023
+    \item \bibentry{climie_vascular_2023} % Feb 2023
+    \item \bibentry{al-halawani_review_2023} % May 2023
+    \item \bibentry{rinkevicius_influence_2023} % Feb 2023
+    \item \bibentry{hygrell_artificial_2023} % March 2023
+    \item \bibentry{alastruey_arterial_2023} % March 2023
+    \item \bibentry{kotzen_sleepppg-net_2023} % Nov 2022
+\end{enumerate}
+\fi
+
+% insert header from page 2 onwards (this needs to be placed on p.2)
+\pagestyle{otherpagestyle}
+
+\ifdim \lastyear pt < 2023 pt
+\subsection*{\textit{2022}}
+\begin{enumerate}[resume]
+    \item \bibentry{Charlton2022} % August 2022
+    \item \bibentry{Vennin2022} % May 2022
+    \item \bibentry{Charlton2022c} % May 2022
+    \item \bibentry{kyriacou_inaccuracy_2023} % April 2022
+    \item \bibentry{Charlton2020rev} % March 2022
+    \item \bibentry{Charlton2021} % March 2022
+\end{enumerate}
+\fi
+\ifdim \lastyear pt < 2022 pt
+\subsection*{\textit{2021}}
+\begin{enumerate}[resume]
+    \item \bibentry{Li2021}
+    \item \bibentry{Bikia2021}
+    \item \bibentry{Adami2021}
+    \item \bibentry{Charlton2021a}
+    \item \bibentry{Mariscal-Harana2020}
+\end{enumerate}
+\fi
+\ifdim \lastyear pt < 2021 pt
+\subsection*{\textit{2020}}
+\begin{enumerate}[resume]
+    \item \bibentry{Celka2019a}
+\end{enumerate}
+\fi
+\ifdim \lastyear pt < 2020 pt
+\subsection*{\textit{2019}}
+\begin{enumerate}[resume]
+    \item \bibentry{Jarchi2019}
+    \item \bibentry{Charlton2019}
+\end{enumerate}
+\fi
+\ifdim \lastyear pt < 2019 pt
+\subsection*{\textit{2018}}
+\begin{enumerate}[resume]
+    \item \bibentry{Charlton2018a}
+    \item \bibentry{Charlton2018b}
+    \item \bibentry{Charlton2017c}
+\end{enumerate}
+\fi
+\ifdim \lastyear pt < 2018 pt
+\subsection*{\textit{2017}}
+\begin{enumerate}[resume]
+    \item \bibentry{Vennin2017}
+    \item \bibentry{Pimentel2016}
+    \item \bibentry{Charlton}
+\end{enumerate}
+\fi
+\ifdim \lastyear pt < 2017 pt
+\subsection*{\textit{2016}}
+\begin{enumerate}[resume]
+    \item \bibentry{Aboab2016}
+    \item \bibentry{Charlton2016}
+\end{enumerate}
+\fi
+\ifdim \lastyear pt < 2016 pt
+\subsection*{\textit{2015}}
+\begin{enumerate}[resume]
+    \item \bibentry{Orphanidou2015}
+\end{enumerate}
+\fi
+\ifdim \lastyear pt < 2013 pt
+\subsection*{\textit{2012}}
+\begin{enumerate}[resume]
+    \item \bibentry{Meredith2012}
+    \item \bibentry{Charlton2012}
+  \end{enumerate}
+  \fi
+  
+% Book Chapters
+  
+\ifdim \lastyear pt < 2023 pt
+\formattedsection{Book Chapters}
+\fi
+\ifdim \lastyear pt < 2023 pt
+\subsection*{\textit{2022}}
+  \begin{enumerate}[resume]
+    \item \bibentry{Mejia-Mejia2021a}
+    \item \bibentry{Charlton2021d}
+\end{enumerate}
+\fi
+\ifdim \lastyear pt < 2017 pt
+\subsection*{\textit{2016}}
+\begin{enumerate}[resume]
+    \item \bibentry{Charlton2016b}
+    \item \bibentry{Charlton2016a}
+\end{enumerate}
+\fi
+\ifdim \lastyear pt < 2016 pt
+\subsection*{\textit{2015}}
+\begin{enumerate}[resume]
+    \item \bibentry{Clifton2015}
+    \item \bibentry{Pimentel2015a}
+  \end{enumerate}
+  \fi
+
+% Conference Papers
+  
+\formattedsection{Conference Papers}
+\ifdim \lastyear pt < 2025 pt
+  \subsection*{\textit{2024}}
+  \begin{enumerate}[resume]
+    \item \bibentry{charlton_msptdfast_2024} % Sept 2024 - CinC 2024
+    \item \bibentry{charlton_acceptability_2024} % Sept 2024 - CinC 2024
+    \item \bibentry{ding_comparing_2024} % Sept 2024 - CinC 2024
+    \item \bibentry{ho_automated_2024} % Sept 2024 - CinC 2024
+    \item \bibentry{rinkevicius_uncertainty_2024} % Sept 2024 - CinC 2024
+  \end{enumerate}
+\fi
+
+\ifdim \lastyear pt < 2024 pt
+  \subsection*{\textit{2023}}
+  \begin{enumerate}[resume]
+    \item \bibentry{charlton_road_2023} % CinC 2023
+    \item \bibentry{charlton_accel_2023} % CinC 2023
+    \item \bibentry{behar_physiozoo_2023} % CinC 2023
+    \item \bibentry{goda_robust_2023} % CinC 2023
+    \item \bibentry{prihatmoko_signal_2023} % 15th APSIPA ASC 2023 Taiwan
+    \item \bibentry{hyanda_comparative_2023} % 15th APSIPA ASC 2023 Taiwan
+\end{enumerate}
+\fi
+
+\ifdim \lastyear pt < 2023.5 pt
+  \begin{enumerate}[resume]
+    \item \bibentry{akande_2023} % CinC 2023
+\end{enumerate}
+\fi
+\ifdim \lastyear pt < 2023 pt
+\subsection*{\textit{2022}}
+\begin{enumerate}[resume]
+    \item \bibentry{ahmadi_development_2022} % December 2022
+    \item \bibentry{Adeniji2022} % September 2022
+\end{enumerate}
+\fi
+\ifdim \lastyear pt < 2012 pt
+\subsection*{\textit{2021}}
+\begin{enumerate}[resume]
+    \item \bibentry{Paliakaite2021a}
+    \item \bibentry{Kotzen2021}
+\end{enumerate}
+\fi
+\ifdim \lastyear pt < 2021 pt
+\subsection*{\textit{2020}}
+\begin{enumerate}[resume]
+    \item \bibentry{Charlton2020}
+    \item \bibentry{Pandiaraja2020}
+\end{enumerate}
+\fi
+\ifdim \lastyear pt < 2020 pt
+\subsection*{\textit{2019}}
+\begin{enumerate}[resume]
+    \item \bibentry{MariscalHarana2019}
+    \item \bibentry{Mathieu2019}
+    \item \bibentry{Pontoriero2019}
+    \item \bibentry{Dijab2019}
+    \item \bibentry{Tecelao2019}
+\end{enumerate}
+\fi
+\ifdim \lastyear pt < 2018 pt
+\subsection*{\textit{2017}}
+\begin{enumerate}[resume]
+    \item \bibentry{Lyle2017a}
+\end{enumerate}
+\fi
+\ifdim \lastyear pt < 2016 pt
+\subsection*{\textit{2015}}
+\begin{enumerate}[resume]
+    \item \bibentry{Charlton2015}
+\end{enumerate}
+\fi
+\ifdim \lastyear pt < 2015 pt
+\subsection*{\textit{2014}}
+\begin{enumerate}[resume]
+    \item \bibentry{Charlton2014}
+    \item \bibentry{Charlton2014a}
+\end{enumerate}
+\fi
+\ifdim \lastyear pt < 2012 pt
+\subsection*{\textit{2012}}
+\begin{enumerate}[resume]
+    \item \bibentry{Orphanidou2011}
+\end{enumerate}
+\fi
+  
+% Conference Abstracts
+  
+\formattedsection{Conference Abstracts}
+
+\ifdim \lastyear pt < 2025 pt
+  \subsection*{\textit{2024}}
+  \begin{enumerate}[resume]
+    \item \bibentry{bhayankaram_esoc_2024} % First half 2024 %	url = {https://distribute.congrex.com/from.storage?image=7roQN4SfuMzh8O3ewHIh9cF_jt0lWFNiXJ-L0qcFEPBN5VxQ0ync-vbInfug0kVc0},
+    \item \bibentry{bhayankaram_ccatas_2024} 
+    \item \bibentry{bhayankaram_ccars_2024} 
+    \item \bibentry{bhayankaram_mwfsc_2024} 
+    \item \bibentry{bhayankaram_sapc_2024} 
+  \end{enumerate}
+\fi
+
+\ifdim \lastyear pt < 2024 pt
+\subsection*{\textit{2023}}
+  \begin{enumerate}[resume]
+    \item \bibentry{alimahomed_ultrasound_2023}
+\end{enumerate}
+\fi
+\ifdim \lastyear pt < 2023 pt
+\subsection*{\textit{2022}}
+\begin{enumerate}[resume]
+    \item \bibentry{charlton_developing_2022}
+    \item \bibentry{alastruey_relevant_2022}
+\end{enumerate}
+\fi
+\ifdim \lastyear pt < 2022 pt
+\subsection*{\textit{2021}}
+\begin{enumerate}[resume]
+    \item \bibentry{charlton_vascular_2021}
+    \item \bibentry{Viberg2021}
+\end{enumerate}
+\fi
+\ifdim \lastyear pt < 2021 pt
+\subsection*{\textit{2020}}
+\begin{enumerate}[resume]
+    \item \bibentry{Charlton2020a}
+\end{enumerate}
+\fi
+\ifdim \lastyear pt < 2020 pt
+\subsection*{\textit{2019}}
+\begin{enumerate}[resume]
+    \item \bibentry{mariscal_algorithms_2019}
+\end{enumerate}
+\fi
+\ifdim \lastyear pt < 2019 pt
+\subsection*{\textit{2018}}
+\begin{enumerate}[resume]
+    \item \bibentry{Charlton2018}
+    \item \bibentry{Charlton2018d}
+    \item \bibentry{MariscalHarana2018}
+    \item \bibentry{Charlton2018g}
+    \item \bibentry{Vennin2018}
+    \item \bibentry{Charlton2018e}
+    \item \bibentry{Charlton2018f}
+\end{enumerate}
+\fi
+\ifdim \lastyear pt < 2018 pt
+\subsection*{\textit{2017}}
+\begin{enumerate}[resume]
+    \item \bibentry{MariscalHarana2017}
+    \item \bibentry{Vennin2017a}
+    \item \bibentry{Charlton2017}
+\end{enumerate}
+\fi
+\ifdim \lastyear pt < 2017 pt
+\subsection*{\textit{2016}}
+\begin{enumerate}[resume]
+    \item \bibentry{Charlton2016c}
+    \item \bibentry{Salciccioli2016}
+\end{enumerate}
+\fi
+\ifdim \lastyear pt < 2016 pt
+\subsection*{\textit{2015}}
+\begin{enumerate}[resume]
+    \item \bibentry{Bonnici2015}
+    \item \bibentry{Charlton2015a}
+\end{enumerate}
+\fi
+\ifdim \lastyear pt < 2015 pt
+\subsection*{\textit{2014}}
+\begin{enumerate}[resume]
+    \item \bibentry{Bonnici2014}
+    \item \bibentry{Charlton2014b}
+    \item \bibentry{Charlton2014c}
+\end{enumerate}
+\fi
+\ifdim \lastyear pt < 2012 pt
+\subsection*{\textit{2011}}
+\begin{enumerate}[resume]
+    \item \bibentry{Smith2011a}
+    \item \bibentry{Smith2011b}
+    \item \bibentry{Smith2011c}
+    \item \bibentry{Smith2011}
+  \end{enumerate}
+  \fi
+  
+%% NB: There are lots of conference abstracts missing. These can be found in my CV from 202207 - I started adding from the present day backwards, and reached Jorge Mariscal Harana, BioMedEng19.
+    
+% Thesis
+
+\ifdim \lastyear pt < 2018 pt
+  \formattedsection{Theses and Dissertations}
+  \begin{enumerate}[resume]
+    \item \bibentry{Charlton2017a}
+    \item \bibentry{Charlton2014f}
+    \item \bibentry{Charlton2010}
+  \end{enumerate}
+\fi
+
+% Book
+  
+  \ifdim \lastyear pt < 2017 pt
+  \formattedsection{Book}
+  \begin{enumerate}[resume]
+    \item \bibentry{MITCriticalData2016}
+  \end{enumerate}
+\fi
+  
+  
+\end{document}
